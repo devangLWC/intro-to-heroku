@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+  margin:0;
+}
+.headerDiv {
+	background-color: #0E4B78;
+	padding: 15px;
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 10px;
+  z-index: 9;
+  cursor:pointer;
+}
+
+.sidenav li {
+	position:relative;
+	padding-right: 15px;
+}
+
+.sidenav a {
+  padding: 20px 0px 14px 10px;
+  text-decoration: none;
+  font-size: 17px;
+  color: #000;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav img {
+	padding-right:10px;
+}
+.sidenav span {
+	position:absolute;
+	top:22px;
+}
+
+.sidenav ul {
+	list-style-type: none;
+	padding-left: 15px;
+}
+
+.sidenav a:hover{
+  background-color: #4D83C0;
+}
+
+.sidenav a:hover {
+  color: #fff;
+}
+
+.frstRowIcons {
+	border-radius: 50%;
+    background-color: #3c6679;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #3c6679;
+    position: relative;
+	display: inline-block;
+    margin-right: 8px;
+}
+
+.frstRowIcons img{
+	position: absolute;
+    top: 7px;
+    left: 7px;
+}
+
+.frstRowIcons i {
+	position: absolute;
+    top: 6px;
+    left: 8px;
+	color:#fff; 
+	font-size:13px;
+	cursor:pointer;
+}
+.headerSecondRow {
+	font-size: 14px;
+    color: #fff;
+    margin-top: 15px;
+}
+
+.searchInputContainer {
+  width: 100%;
+  margin-bottom: 15px;
+  position:relative;
+}
+
+.searchIcon {
+	position: absolute;
+    top: 10px;
+    left: 15px;
+}
+
+.searchInputField {
+	padding-top: 10px;
+    padding-bottom: 10px;
+    outline: none;
+    padding-left: 38px;
+	width: 246px;
+}
+
+.headerThirdRow {
+	margin-top:35px;
+	display:none;
+}
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #4D83C0;
+  margin: 0 auto;
+  margin-top: -4px;
+}
+
+.locationHealthStatus {
+	background-color:#4D83C0;
+	color:#fff;
+	font-size:20px;
+	padding: 20px;
+	padding-bottom: 30px;
+}
+
+.overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.83);
+  z-index: 2;
+  cursor: pointer;
+}
+
+
+/* @media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+} */
+</style>
+</head>
+<body>
+<div class="overlay" id="overlay" onclick="closeNav()">
+
+</div>
+<div class="bodyContent" id="bodyContent">
+	<div class="headerDiv">
+		<div class="headerFirstRow">
+			<div style="display:inline-block">
+				<span style="font-size:23px;cursor:pointer;color:#fff" onclick="openNav()"><i class="fa fa-bars" aria-hidden="true"></i></span>
+				<span><img src="HughesON_Login.png" alt="hughesOn Login" style="margin-left: 15px;"></span>
+			</div>
+			<div style="display:inline-block; float:right">
+				<div class="frstRowIcons" id="search" onclick="openSearchField()"><img src="magnifying-glass.png" alt="glass"></div>
+				<div class="frstRowIcons" id="cross" style="display:none" onclick="closeSearchField()"><i class="fa fa-times" aria-hidden="true"></i></div>
+				<div class="frstRowIcons"><i class="fa fa-phone" aria-hidden="true"></i></div>
+				<div class="frstRowIcons"><i class="fa fa-user" aria-hidden="true"></i></div>
+			</div>
+		</div>
+		<div class="headerSecondRow">
+			<div style="display:inline-block;">
+				<span>Franchise : All Franchise</span>
+				<span><i class="fa fa-caret-down" aria-hidden="true" style="color:#fff;"></i> </span>
+			</div>
+			<div style="display:inline-block; float:right"><span>Sherwin-Williams</span></div>
+		</div>
+		<div class="headerThirdRow" id="searchField">
+			<div class="searchInputContainer">
+				<span class="searchIcon"><i class="fa fa-search" aria-hidden="true" style="color:#989898"></i></span>
+				<input class="searchInputField" type="text" placeholder="Search" name="search">
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class="locationHealthStatus">
+			<div style="display:inline-block">
+				<span><img src="location_health_status.png" alt="locationHealthStatus"></span>
+				<span>Locations Health Status</span>
+			</div>
+			<div style="display:inline-block; float:right">
+				<i class="fa fa-ban" aria-hidden="true" style="color:#fff; font-size: 24px; margin-top: 15px;"></i>
+			</div>
+		</div>
+		<div class="arrow-down"></div>
+		<p>fkjgkjfgjkfgkj fkhfljkhfdkjlf hkjhlkjhlkj fhjkhlkjhlkj fshklfhkjlfds hkjhkjhl hklhklhlkjgd</p>
+		<p>fkjgkjfgjkfgkj fkhfljkhfdkjlf hkjhlkjhlkj fhjkhlkjhlkj fshklfhkjlfds hkjhkjhl hklhklhlkjgd</p>
+		<p>fkjgkjfgjkfgkj fkhfljkhfdkjlf hkjhlkjhlkj fhjkhlkjhlkj fshklfhkjlfds hkjhkjhl hklhklhlkjgd</p>
+	</div>
+</div>
+<div id="mySidenav" class="sidenav">
+	<ul>
+		<li>
+			<a href="#">Dashboard</a>
+		</li>
+		<li>
+			<a href="#">Cases</a>
+		</li>
+		<li>
+			<a href="#"><img src="wrench.png" alt="wrench" width="22" height="22"><span>Repair Orders</span></a>
+		</li>
+		<li>
+			<a href="#">Locations</a>
+		</li>
+		<li>
+			<a href="#">Signed Agreement</a>
+		</li>
+		<li>
+			<a href="#">Products</a>
+		</li>
+		<li>
+			<a href="#">Install Service Orders</a>
+		</li>
+		<li>
+			<a href="#">Network Monitoring</a>
+		</li>
+		<li>
+			<a href="#">Calender</a>
+		</li>
+		<li>
+			<a href="#">Billing</a>
+		</li>
+		<li>
+			<a href="#">Help</a>
+		</li>
+	</ul>
+</div>
+
+<!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span> -->
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "85%";
+  // document.getElementById("bodyContent").style.opacity = "0.4";
+  document.getElementById("overlay").style.display = "block";
+}
+
+function openSearchField() {
+	document.getElementById("searchField").style.display = "block";
+	document.getElementById("cross").style.display = "inline-block";
+	document.getElementById("search").style.display = "none";
+}
+function closeSearchField() {
+	document.getElementById("searchField").style.display = "none";
+	document.getElementById("cross").style.display = "none";
+	document.getElementById("search").style.display = "inline-block";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("overlay").style.display = "none";
+}
+</script>
+   
+</body>
+</html> 
